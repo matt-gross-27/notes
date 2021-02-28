@@ -35,7 +35,7 @@ router.delete('/notes/:id', (req, res) => {
     deleteNoteById(req.params.id, notes);
     res.json(notes);
   } else {
-    res.send(404);
+    res.status(404);
   }
 });
 
