@@ -4,7 +4,8 @@ const {
   filterByQuery, 
   findById, 
   createNewNote, 
-  validateNote 
+  validateNote,
+  deleteNoteById
 } = require('../lib/notes');
 
 const notes = require('../db/db.json');
@@ -95,4 +96,26 @@ test("validates note fields as non empty strings", () => {
   expect(validateNote(validNote)).toBe(true);
   expect(validateNote(invalidNote)).toBe(false);
   expect(validateNote(invalidNote2)).toBe(false);
+});
+
+test("deletes note with matching id and returns new notes array", () => {
+  const notesArr = [
+    {
+      "title": "Test Title seArchMe",
+      "text": "Test text",
+      "id": "0"
+    },
+    {
+      "title": "Hello",
+      "text": "World",
+      "id": "1"
+    },
+    {
+      "title": "Whats Up",
+      "text": "Man",
+      "id": "2"
+    }
+  ];
+
+  expect(deleteNoteById(1, notesArr).length).toEqual(2);
 });
