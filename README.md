@@ -1,40 +1,57 @@
-# notes
+# Notes
 
-AS A small business owner
+<div style="position: absolute; top: 22px; right: 50px">
 
-I WANT to be able to write and save notes
+![licence: MIT](https://img.shields.io/badge/license-MIT-blue)
+</div>
 
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
+<a href = "#description"></a>
+## Description
+Notes is a web application that uses an express.js server to save your notes. Write and add notes. Save them. Look back at them later!
+<br>
+### [Go To Deployed Application](https://notes-3000.herokuapp.com/)
 
-GIVEN a note-taking application
-```
-WHEN I open the Note Taker
+## Table of Contents
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [License](#license)
+  - [Tests](#tests)
+  - [Contributing Guide Lines](#contributing)
+  - [Questions](#questions)
 
-THEN I am presented with a landing page with a link to a notes page
-```
-```
-WHEN I click on the link to the notes page
+<a href = "#installation"></a>
+## Installation
+N/a
 
-THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the 
-right-hand column
-```
-```
-WHEN I enter a new note title and the note’s text
+<a href = "#usage"></a>
+## Usage
+- Click on the pencil Icon to add a note. 
+- Once you have entered the title and text click the disk icon to save the note. 
+- Click on the note title in the list to view the note.
 
-THEN a Save icon appears in the navigation at the top of the page
-```
-```
-WHEN I click on the Save icon
+<a href = "#credits"></a>
+## Credits
+- [matt-gross-27](https://github.com/matt-gross-27)
 
-THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes
-```
-```
-WHEN I click on an existing note in the list in the left-hand column
 
-THEN that note appears in the right-hand column
-```
-```
-WHEN I click on the Write icon in the navigation at the top of the page
+<a href = "#license"></a>
+## License
+- MIT
 
-THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
-```
+<a href = "#contributing"></a>
+## Contributing Guide Lines
+I have created an express.js route to delete notes that works locally with nodemon, but can't seem to get it to work when the app is deployed to Heroku. Please email me if you have any ideas!
+
+<a href = "#tests"></a>
+## Tests
+The app uses jest as a testing framework. run the command npm test to test all functions in the ./lib/notes.js are working properly
+
+<a href = "questions"></a>
+## Questions
+Feel free to reach out with any question you have about Notes!
+
+### Contact information:
+- GitHub: [matt-gross-27](https://www.github.com/matt-gross-27)
+- Email: [mbgross111@gmail.com](mailto:mbgross111@gmail.com)
