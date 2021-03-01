@@ -80,17 +80,19 @@ const handleNoteDelete = (e) => {
   // prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
 
-  const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
-  // e.target.parentElement.remove();
+  const note = e.target.parentElement;
+  console.log(note);
+  const noteId = JSON.parse(note.getAttribute('data-note')).id.toString();
+  console.log(noteId);
+  e.target.parentElement.remove();
 
   if (activeNote.id === noteId) {
     activeNote = {};
   }
 
   deleteNote(noteId).then(() => {
-    setTimeout(getAndRenderNotes, 400);
     renderActiveNote();
+    getAndRenderNotes();
   });
 };
 
@@ -118,7 +120,6 @@ const handleRenderSaveBtn = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
-  console.log(jsonNotes);
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }

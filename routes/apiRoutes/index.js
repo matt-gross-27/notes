@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const notes = require('../../db/db.json');
+let notes = require('../../db/db.json');
 const { filterByQuery, findById, createNewNote, validateNote, deleteNoteById } = require('../../lib/notes');
 
 router.get('/notes', (req, res) => {
@@ -15,15 +15,14 @@ router.get('/notes/:id', (req, res) => {
   if (result) {
     res.json(result);
   } else {
-    res.send(404)
+    res.sendStatus(404)
   }
 });
 
 router.post('/notes', (req, res) => {
-  // change id generator when we add delete notes capabilities
-  req.body.id = notes.length.toString()
+  req.body.id = Date.now();
   if(!validateNote(req.body)) {
-    res.status(400).send('Improperly formatted note');
+    res.sendStatus(400).send('Improperly formatted note');
   } else {
     const note = createNewNote(req.body, notes);
     res.json(note);
@@ -31,11 +30,14 @@ router.post('/notes', (req, res) => {
 });
 
 router.delete('/notes/:id', (req, res) => {
-  if( req.params.id < notes.length  &&  req.params.id > -1) {
-    deleteNoteById(req.params.id, notes);
-    res.json(notes);
+  const { id } = req.params
+  const deletedRecord = notes.find(note => note.id.toString() === id);
+  if (!deletedRecord) {
+    res.status(404).json({ message: "Note not found" });
   } else {
-    res.status(404);
+    console.log(deletedRecord);
+    deleteNoteById(id, notes);
+    res.status(200).json(deletedRecord);
   }
 });
 

@@ -103,19 +103,19 @@ test("deletes note with matching id and returns new notes array", () => {
     {
       "title": "Test Title seArchMe",
       "text": "Test text",
-      "id": "0"
+      "id": 0
     },
     {
       "title": "Hello",
       "text": "World",
-      "id": "1"
+      "id": 1
     },
     {
       "title": "Whats Up",
       "text": "Man",
-      "id": "2"
+      "id": 2
     }
   ];
 
-  expect(deleteNoteById(1, notesArr).length).toEqual(2);
+  expect(deleteNoteById("1", notesArr).length).toEqual(2);
 });
