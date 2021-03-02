@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const fs = require('fs');
 
 const { filterByQuery, findById, createNewNote, validateNote, deleteNoteById, readDb } = require('../../lib/notes');
 // let latestNotes = JSON.parse(fs.readFileSync('../../db/db.json', 'utf-8'));
@@ -35,8 +34,9 @@ router.post('/notes', (req, res) => {
 
 router.delete('/notes/:id', (req, res) => {
   const { id } = req.params
+  console.log(id);
   let notes = readDb();
-  const deletedRecord = notes.find(note => note.id.toString() === id);
+  const deletedRecord = notes.find(note => note.id.toString() == id);
   if (!deletedRecord) {
     res.status(404).json({ message: "Note not found" });
   } else {
