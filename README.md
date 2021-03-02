@@ -18,7 +18,6 @@ Notes is a web application that uses an express.js server to save your notes. Wr
   - [Credits](#credits)
   - [License](#license)
   - [Tests](#tests)
-  - [Contributing Guide Lines](#contributing)
   - [Questions](#questions)
 
 <a href = "#installation"></a>
@@ -30,6 +29,7 @@ N/a
 - Click on the pencil Icon to add a note. 
 - Once you have entered the title and text click the disk icon to save the note. 
 - Click on the note title in the list to view the note.
+-Click on the trash icon to delete a note
 
 <a href = "#credits"></a>
 ## Credits
@@ -39,10 +39,6 @@ N/a
 <a href = "#license"></a>
 ## License
 - MIT
-
-<a href = "#contributing"></a>
-## Contributing Guide Lines
-I have created an express.js route to delete notes that works locally with nodemon, but can't seem to get it to work when the app is deployed to Heroku. Please email me if you have any ideas!
 
 <a href = "#tests"></a>
 ## Tests
