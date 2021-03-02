@@ -91,7 +91,7 @@ const handleNoteDelete = (e) => {
   }
 
   deleteNote(noteId).then(() => {
-    getAndRenderNotes();
+    getAndRenderNotesAsync();
     renderActiveNote();
   });
 };
@@ -127,7 +127,7 @@ const renderNoteList = async (notes) => {
   let noteListItems = [];
 
   // Returns HTML element with or without a delete button
-  const createLi = (text, delBtn = false) => {
+  const createLi = (text, delBtn = true) => {
     const liEl = document.createElement('li');
     liEl.classList.add('list-group-item');
     liEl.addEventListener('click', handleNoteView);

@@ -37,7 +37,7 @@ router.delete('/notes/:id', (req, res) => {
   } else {
     console.log(deletedRecord);
     deleteNoteById(id, notes);
-    res.status(200).json(deletedRecord);
+    res.status(200).end();
   }
 });
 
